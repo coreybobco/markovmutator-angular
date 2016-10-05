@@ -1,6 +1,6 @@
-<div ng-repeat="book in books">
-  <label>Use?<input type="checkbox"></label>
-  <div>Source: {{book.source}}</div>
-  <div>Author: {{book.author}}</div>
-  <div>Title: {{book.title}}</div>
+<div class="col-sm-4" ng-repeat="mutagen in mutagens track by mutagen.document_id">
+  <label><input type="checkbox">Use?</label>
+  <div class="mutagen_title">{{mutagen.title}}</div>
+  <div class="mutagen_author">{{mutagen.author}}</div>
+  <div class="mutagen_source">{{mutagen.source}}</div>
 </div>
