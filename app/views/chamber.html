@@ -1,6 +1,11 @@
-<div class="col-sm-4" ng-repeat="mutagen in mutagens">
-  <label><input type="checkbox">Use?</label>
-  <div class="mutagen_title">{{mutagen.title}}</div>
-  <div class="mutagen_author">{{mutagen.author}}</div>
-  <div class="mutagen_source">{{mutagen.source}}</div>
+<div class="gene_container col-sm-4" ng-repeat="gene in genes">
+  <label><input type="checkbox"></label>
+  <span>
+    <i class="fa fa-times" aria-hidden="true"></i><br>
+    <div class="gene_info">
+      <div class="gene_title">{{gene.title}}</div>
+      <div class="gene_author">{{gene.author}}</div>
+      <div class="gene_source">{{gene.source}}</div>
+    </div>
+  </span>
 </div>

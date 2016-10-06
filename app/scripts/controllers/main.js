@@ -9,21 +9,21 @@
  */
 angular.module('markovmutatorApp')
   .controller('MainCtrl', function ($scope, $http) {
-    $scope.mutagens = [];
+    $scope.genes = [];
     $scope.addBook = function() {
       var url = JSON.stringify(document.querySelector("#url").value);
       $http.post('/addBook', url)
       .then(function successCallback(response) {
-        var mutagen = response.data;
+        var gene = response.data;
         var duplicate_found = false;
-        for(var i = 0; i < $scope.mutagens.length; i++) {
-          if (mutagen.source == $scope.mutagens[i].source && mutagen.document_id == $scope.mutagens[i].document_id) {
+        for(var i = 0; i < $scope.genes.length; i++) {
+          if (gene.source == $scope.genes[i].source && gene.document_id == $scope.genes[i].document_id) {
             duplicate_found = true;
             break;
           }
         }
         if (!duplicate_found) {
-          $scope.mutagens.push(mutagen);
+          $scope.genes.push(gene);
         }
       }, function errorCallback(response) {
         console.log("Error\n" + response)
