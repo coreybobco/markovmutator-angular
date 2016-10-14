@@ -14,6 +14,7 @@ angular.module('markovmutatorApp')
       var url = JSON.stringify(document.querySelector("#url").value);
       $http.post('/addGene', url)
       .then(function successCallback(response) {
+        document.querySelector("#mutate_button").disabled = false;
         var gene = response.data;
         var duplicate_found = false;
         for(var i = 0; i < $scope.genes.length; i++) {
@@ -28,5 +29,18 @@ angular.module('markovmutatorApp')
       }, function errorCallback(response) {
         console.log("Error\n" + response)
       });
-  }
+    };
+    $scope.mutate = function() {
+      var checked_genes = []
+      for(var i = 0; i < $scope.genes.length; i++) {
+        if (document.querySelector("#checkbox_gene_" + i.toString()).checked) {
+          checked_genes.push($scope.genes[i]);
+        }
+      }
+      $http.post('mutate', checked_genes);
+    };
+    $scope.deleteGene = function(gene){
+      var index = $scope.genes.indexOf(gene);
+      $scope.genes.splice(index, 1);
+    }
   });
