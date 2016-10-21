@@ -67,6 +67,20 @@ module.exports = function (grunt) {
       }
     },
 
+    injector: {
+      options: {
+        ignorePath: "app/"
+      },
+      local_dependencies: {
+        files: {
+          '<%= yeoman.app %>/index.html': [
+            '<%= yeoman.app %>/scripts/jbooklet/*.js',
+            '<%= yeoman.app %>/scripts/jbooklet/*.css'
+          ]
+        }
+      }
+    },
+
     // The actual grunt server settings
     connect: {
       options: {
@@ -220,11 +234,10 @@ module.exports = function (grunt) {
     // Automatically inject Bower components into the app
     wiredep: {
       app: {
-        src: ['<%= yeoman.app %>/index.html'],
+        src: ['app/index.html'],
           dependencies: true,
           devDependencies: true
           // ...
-
       },
       test: {
         devDependencies: true,
@@ -448,6 +461,7 @@ module.exports = function (grunt) {
     }
   });
 
+  grunt.loadNpmTasks('grunt-injector');
   grunt.loadNpmTasks('grunt-wiredep');
   grunt.loadNpmTasks('grunt-connect-proxy');
 

@@ -37,7 +37,19 @@ angular.module('markovmutatorApp')
           checked_genes.push($scope.genes[i]);
         }
       }
-      $http.post('mutate', checked_genes);
+      $http.post('mutate', checked_genes)
+        .then(function successCallback(response) {
+          var booklet = $("#mutant_book").booklet({width: '900px', height: '520px', pageTotal: 15});
+          var output = response.data;
+          var page_texts = output.match(/.{1,1400}/g);
+          $("#page1").find('p').text(page_texts[1]);
+          for (i=0; i < page_texts.length; i++) {
+            $("#page" + i.toString()).find('p').text(page_texts[i]);
+          }
+        },
+          function errorCallback(response) {
+        console.log("Error\n" + response)
+      });
     };
     $scope.deleteGene = function(gene){
       var index = $scope.genes.indexOf(gene);

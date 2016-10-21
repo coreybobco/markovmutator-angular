@@ -8,7 +8,7 @@
  *
  * Main module of the application.
  */
-angular
+var myApp = angular
   .module('markovmutatorApp', [
     'ngAnimate',
     'ngMessages',
@@ -32,3 +32,14 @@ angular
         redirectTo: '/'
       });
   });
+myApp.filter('range', function() {
+  return function(input, total) {
+    total = parseInt(total);
+
+    for (var i=0; i<total; i++) {
+      input.push(i);
+    }
+
+    return input;
+  };
+});

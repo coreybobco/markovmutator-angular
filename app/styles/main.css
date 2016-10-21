@@ -116,3 +116,9 @@ h1,h3 { text-align: center; }
   margin: 10px auto 10px auto;
   display: block;
 }
+#mutant_book {
+  width: 800px; !important
+}
+.b-page, .b-wrap {
+  width: 400px; !important
+}
