@@ -109,8 +109,20 @@ h1,h3 { text-align: center; }
   white-space: nowrap;
   width: 230px;
 }
-.gene_source { font-style: italic;   text-overflow: ellipsis; }
+.gene_source { font-style: italic; text-overflow: ellipsis; }
 .col-sm-4 { padding-left: 5px; padding-right: 5px; }
+
+#config_options {
+  border: 1px solid grey;
+  border-radius: 8px;
+  width: 400px;
+  margin-left: 240px;
+  background-color: #ececec;
+}
+#config_title {
+  text-align: center;
+}
+
 #mutate_button {
   width: 100px;
   margin: 10px auto 10px auto;
@@ -121,4 +133,7 @@ h1,h3 { text-align: center; }
 }
 .b-page, .b-wrap {
   width: 400px; !important
+}
+label {
+  font-weight: normal;
 }
