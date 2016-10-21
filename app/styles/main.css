@@ -129,10 +129,10 @@ h1,h3 { text-align: center; }
   display: block;
 }
 #mutant_book {
-  width: 800px; !important
+  width: 800px;
 }
 .b-page, .b-wrap {
-  width: 400px; !important
+  width: 400px;
 }
 label {
   font-weight: normal;
