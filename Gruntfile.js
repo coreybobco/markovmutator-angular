@@ -30,7 +30,6 @@ module.exports = function (grunt) {
 
     // Project settings
     yeoman: appConfig,
-    ec2: 'ec2.json'
 
     // Watches files for changes and runs tasks based on the changed files
     watch: {
